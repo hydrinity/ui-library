@@ -3133,7 +3133,7 @@ function Library:keybind(options)
 					listening = false
 				end
 			else
-				if key.KeyCode == options.Keybind then
+				if key.KeyCode == options.Keybind and not UserInputService:GetFocusedTextBox() then
 					options.Callback()
 				end
 			end
@@ -3161,6 +3161,7 @@ function Library:prompt(options)
 		Followup = false,
 		Title = "Prompt",
 		Text = "yo momma dead",
+		Size = UDim2.fromOffset(200, 120),
 		Buttons = {
 			ok = function()
 				return true
@@ -3185,7 +3186,7 @@ function Library:prompt(options)
 		Theme = {BackgroundColor3 = "Main"},
 		BackgroundTransparency = 1,
 		Centered = true,
-		Size = UDim2.fromOffset(200, 120)
+		Size = options.Size
 	}):round(6)
 
 	local _promptContainerStroke = promptContainer:object("UIStroke", {
