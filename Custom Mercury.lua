@@ -647,7 +647,7 @@ function Library:create(options)
 		Position = UDim2.new(0, 5, 1, -6),
 		Size = UDim2.new(0.2, 0, 0, 10),
 		Font = Enum.Font.SourceSans,
-		Text = "Version 1.0.0 · Anti AFK | Enabled",
+		Text = "Version 1.0.1 · Anti AFK | Enabled",
 		Theme = {TextColor3 = "Tertiary"},
 		TextSize = 14,
 		TextXAlignment = Enum.TextXAlignment.Left
@@ -1916,7 +1916,8 @@ function Library:color_picker(options)
 		Description = nil,
 		Style = Library.ColorPickerStyles.Legacy,
 		Followup = false,
-		Callback = function(color) end
+		Callback = function(color) end,
+		StartingColor = Library.CurrentTheme.Tertiary
 	}, options)
 
 	local buttonContainer = self.container:object("TextButton", {
@@ -1952,7 +1953,7 @@ function Library:color_picker(options)
 		Position = UDim2.new(1, -11, 0.5, 0),
 		Size = UDim2.fromOffset(26, 26),
 		Image = "rbxassetid://8604555937",
-		ImageColor3 = Library.CurrentTheme.Tertiary
+		ImageColor3 = options.StartingColor
 	})
 
 	do
